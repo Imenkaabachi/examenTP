@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des etudiants{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Prenom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">section</th>
+            <th scope="col">action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for etudiant in etudiants %}
+        <tr>
+            <th scope="row">{{ etudiant.prenom }}</th>
+            <td>{{ etudiant.name }}</td>
+            <td>{{ etudiant.section }}</td>
+            <td>
+                <a href="{{path('etudiant.edit',{id:etudiant.id})}}" class="card-link">Edit</a>
+                <a href="{{path('etudiant.edit',{id:etudiant.id})}}" class="card-link">delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+{% endblock %}
